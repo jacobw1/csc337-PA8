@@ -4,16 +4,20 @@
     <meta charset="UTF-8"/>
     <title>Chatty</title>
     <link rel="stylesheet" href="style.css">
+    <script src="code.js"></script>
   </head>
   <body>
     <div id="message_board">
     </div>
     <div id="message_creator">
       <label for="Alias">Alias</label>
-      <input type="text" name="Alias" value="">
+      <input id="alias"type="text" name="Alias" value="">
+      <br>
       <label for="Message">Message</label>
-      <input type="text" name="Message" value="">
-      <button type="button" name="Send_Message">Send Message</button>
+      <input id="message" type="text" name="Message" value="">
+      <br>
+      <button type="button" name="Send_Message" onclick="createMessage();">Send Message</button>
     </div>
+    <script>getChat();</script>
   </body>
 </html>
