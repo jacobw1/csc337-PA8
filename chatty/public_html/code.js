@@ -1,11 +1,14 @@
+/* Author: Jacob Williams
+ * Purpose: This file ineracts with the index.html file to send information to the server
+ * useage: none
+ */
 
-
+// gets the chat messages from the DB and server
 function getChat(){
   var httpRequest = new XMLHttpRequest();
   if(!httpRequest){
     return false;
   }
-
   httpRequest.onreadystatechange = () => {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) {
@@ -19,13 +22,13 @@ function getChat(){
   httpRequest.open('GET',url);
   httpRequest.send();
 }
-
+// gets information from text fields and sends to server to be added into DB
+// calls when button is pushed in html
 function createMessage(){
   var httpRequest = new XMLHttpRequest();
   if(!httpRequest){
     return false;
   }
-
   httpRequest.onreadystatechange = () => {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) {
@@ -40,3 +43,5 @@ function createMessage(){
   httpRequest.open('POST',url);
   httpRequest.send();
 }
+// sets the interval to reload the messages every second
+setInterval(function(){getChat()}, 1000 );
